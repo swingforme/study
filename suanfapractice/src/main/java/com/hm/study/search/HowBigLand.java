@@ -23,7 +23,7 @@ public class HowBigLand {
     Pair<Integer,Integer>[] record = new Pair[map[0].length*map.length];
 
     int[][] next = new int[][]{{0,1},{0,-1},{-1,0},{1,0} };
-    int start=0,end=1;
+    int start=0,end=0;
 
     public void play(){
 
@@ -54,13 +54,13 @@ public class HowBigLand {
                     book[tx][ty] = 1;
                     size++;
 
-                    record[end++] = Pair.of(tx,ty);
+                    record[++end] = Pair.of(tx,ty);
 
 
                 }
             }
             start++;
-        }while (start<end);
+        }while (start<=end && end<record.length);
     }
 
     public static void main(String[] args) {
